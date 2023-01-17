@@ -16,14 +16,14 @@ import com.moonlight.spring.test.mybatis.model.RealEstate;
 public class SelectController {
 	
 	@Autowired
-	private RealEstateBO reviewBO;
+	private RealEstateBO realestateBO;
 	
 	
 	// id를 parameter 로 입력 받고 해당하는 id의 매물 정보를 아래와 같이 json으로 출력하세요.
 	@ResponseBody
 	@RequestMapping("1")
 	public RealEstate reviewid(@RequestParam("id") int id) {
-		RealEstate review = reviewBO.getReviewId(id);
+		RealEstate review = realestateBO.getReviewId(id);
 		return review;
 	}
 	
@@ -32,7 +32,7 @@ public class SelectController {
 	@ResponseBody
 	@RequestMapping("2")
 	public List<RealEstate> reviewrentprice(@RequestParam("rent") int rent) {
-		List<RealEstate> review = reviewBO.getReviewRentPrice(rent);
+		List<RealEstate> review = realestateBO.getReviewRentPrice(rent);
 		return review;
 	}
 	
@@ -45,11 +45,11 @@ public class SelectController {
 	public List<RealEstate> reviewareaprice(
 			@RequestParam("area") int area
 			, @RequestParam("price") int price) {
-		// List<RealEstate> review = reviewBO.getReviewAreaPrice(area, price);
+		// List<RealEstate> review = realestateBO.getReviewAreaPrice(area, price);
 		// return review;	
 		
 		// 결과값을 추가적으로 가공 필요하면 변수를 만들어서 저장하는데, 그대로 리턴하면 간략적으로 기입해도 좋음
-		return reviewBO.getReviewAreaPrice(area, price);
+		return realestateBO.getReviewAreaPrice(area, price);
 	}
 	
 }

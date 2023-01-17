@@ -43,4 +43,13 @@ public class RealEstateBO {
 	public int addRealEstate(int realtorid, String address, int area, String type, int price, int rent) {
 		return reviewDAO.addRealEstate(realtorid, address, area, type, price, rent);
 	}
+	
+	// 변경할 대상 id, 변경할 type, 변경할 price
+	public int updateRealEstate(int id, String type, int price) {
+		return reviewDAO.updateRealEstate(id, type, price);
+	}
+	
+	public int deleteRealEstate(int id) {
+		return reviewDAO.deleteRealEstate(id);
+	}
 }

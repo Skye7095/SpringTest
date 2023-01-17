@@ -14,7 +14,7 @@ import com.moonlight.spring.test.mybatis.model.RealEstate;
 public class InsertController {
 	
 	@Autowired
-	private RealEstateBO reviewBO;
+	private RealEstateBO realestateBO;
 	
 		// 1. 객체로 insert 하기
 		@ResponseBody
@@ -31,7 +31,7 @@ public class InsertController {
 			// 이 상태에서 mysql이 id가 0일 가능성이 없고 알아서 자동적으로 숫자를 채워줬다.
 			// 크게 문제는 없지만 그래도 정확성을 위해 mapper에서 사용하지 않는 변수를 아예 만들지 않는 것이 추천한다.
 			
-			int count = reviewBO.addRealEstateByObject(realestate);
+			int count = realestateBO.addRealEstateByObject(realestate);
 			return "실행결과: " + count;
 		}
 		
@@ -39,7 +39,7 @@ public class InsertController {
 		@ResponseBody
 		@RequestMapping("2")
 		public String addRealEstate2(@RequestParam("realtorId") int realtorid) {
-			int count = reviewBO.addRealEstate(3, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
+			int count = realestateBO.addRealEstate(3, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
 			return "입력 성공: " + count;
 		}
 }
