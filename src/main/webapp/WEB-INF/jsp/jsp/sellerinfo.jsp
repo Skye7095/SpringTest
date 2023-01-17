@@ -14,9 +14,11 @@
 
 </head>
 <body>
-	<h1>판매자 정보</h1>
-	<img width="200" src="${seller.profileImage}"><br>
-	<label class="text-secondary display-3">${seller.nickname}</label><br>
-	<label class="text-warning display-4">${seller.temperature}</label>
+	<div class="container">
+		<h1>판매자 정보</h1>
+		<img width="200" src="${seller.profileImage}"><br>
+		<label class="text-secondary display-3">${seller.nickname}</label><br>
+		<label class="text-warning display-4">${seller.temperature}</label>
+	</div>
 </body>
 </html>

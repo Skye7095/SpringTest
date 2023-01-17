@@ -20,14 +20,17 @@ public class SellerController {
 	private SellerBO sellerBO;
 	
 	@GetMapping("/seller_info")
-	public String lastSeller(@RequestParam(value="id", defaultValue="0") int id, Model model) {
-		if(id == 0) {
-			Seller lastSeller = sellerBO.getLastSeller();
-			model.addAttribute("seller", lastSeller);
-		}else {
-			Seller searchSeller = sellerBO.getSeller(id);
-			model.addAttribute("seller", searchSeller);
-		}
+	public String lastSeller(@RequestParam(value="id", required=false) Integer id, Model model) {
+//		if(id == null) {
+//			Seller lastSeller = sellerBO.getLastSeller();
+//			model.addAttribute("seller", lastSeller);
+//		}else {
+//			Seller searchSeller = sellerBO.getSeller(id);
+//			model.addAttribute("seller", searchSeller);
+//		}
+		
+		Seller seller = sellerBO.getSeller(id);
+		model.addAttribute("seller", seller);
 		
 		return "jsp/sellerinfo";
 	}
@@ -38,7 +41,7 @@ public class SellerController {
 	public String addUser(
 			@RequestParam("nickname") String nickname
 			, @RequestParam("profileImage") String profileImage
-			, @RequestParam("temperature") Double temperature) {
+			, @RequestParam("temperature") double temperature) {
 		
 		int count = sellerBO.addSeller(nickname, profileImage, temperature);
 		return "삽입결과: " + count;
