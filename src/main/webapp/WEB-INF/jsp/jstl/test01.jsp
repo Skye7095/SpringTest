@@ -26,7 +26,10 @@
 	<h3>4. core if</h3>
 	<c:set var="average" value="${(number1 + number2) / 2 }" />
 	<c:if test="${average >= 10 }">
-		<c:out value="${average }"/>
+		<h1>${average }</h1>
+	</c:if>
+	<c:if test="${average < 10 }">
+		<h3>${average }</h3>
 	</c:if>
 	
 	<h3>5. core if</h3>
